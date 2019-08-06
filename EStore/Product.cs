@@ -4,6 +4,7 @@
     {
         public abstract string Name { get; }
         public abstract double Price { get; }
+        public abstract Category Category { get; }
     }
     
 }

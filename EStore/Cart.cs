@@ -2,10 +2,15 @@
 
 namespace EStore
 {
-    public class Cart:IDiscount
+    public class Cart
     {
         List<CartItem> cartItems = new List<CartItem>();
-        double discount=0;
+        double discount;
+        public Cart(DiscountConfiguration discountConfiguration)
+        {
+            discount = discountConfiguration.Discount;
+
+        }
         public void AddItem(CartItem cartItem)
         {
             //CartItem cartItem = new CartItem(product, quantity);
@@ -16,6 +21,7 @@ namespace EStore
             {
                 CartItem _cartItem = cartItems.Find(item => item.product == cartItem.product);
                 _cartItem.Quantity += cartItem.Quantity;
+                _cartItem.TotalPrice += cartItem.TotalPrice;
             }
 
         }
@@ -31,21 +37,19 @@ namespace EStore
         {
             return cartItems;
         }
-        public double GetDiscount()
-        {
-            return discount;
-        }
+       
 
         public void RemoveItem(CartItem cartItem)
         {
             int index=cartItems.IndexOf(cartItem);
-            cartItems.RemoveAt(index);
+            cartItems[index].Quantity -= cartItem.Quantity;
+            cartItems[index].TotalPrice -= cartItem.TotalPrice;
+            
+            if (cartItems[index].Quantity == 0)
+                cartItems.RemoveAt(index);
         }
 
-        public void SetDiscount(double discount)
-        {
-            this.discount = discount;
-        }
+      
         public double TotalPriceOfCart()
         {
             double totalPrice = 0;
@@ -57,5 +61,4 @@ namespace EStore
             return totalPrice - discountInPrice;
         }
     }
-    
 }

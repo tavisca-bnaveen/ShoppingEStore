@@ -4,16 +4,16 @@
     {
         public Product product;
         public int Quantity;
-        private double _TotalPrice;
-        public CartItem(Product product,int Quantity)
+        public double TotalPrice;
+        public CartItem(Product product,int Quantity,DiscountConfiguration discountConfiguration)
         {
             this.product = product;
             this.Quantity = Quantity;
-            _TotalPrice = product.Price * Quantity;
+            TotalPrice = product.Price*(1-discountConfiguration.CategoryDiscount[product.Category]) * Quantity;
         }   
         public double GetTotalPrice()
         {
-            return _TotalPrice;
+            return TotalPrice;
         }
     }
     
