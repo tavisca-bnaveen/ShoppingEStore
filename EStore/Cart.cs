@@ -9,11 +9,23 @@ namespace EStore
         public void AddItem(CartItem cartItem)
         {
             //CartItem cartItem = new CartItem(product, quantity);
-            CartItem _cartItem= cartItems.Find(item => item.product == cartItem.product);
-            if (_cartItem == null)
+
+            if (!IsCartItemPresent(cartItem))
                 cartItems.Add(cartItem);
             else
+            {
+                CartItem _cartItem = cartItems.Find(item => item.product == cartItem.product);
                 _cartItem.Quantity += cartItem.Quantity;
+            }
+
+        }
+        public bool IsCartItemPresent(CartItem cartItem)
+        {
+            CartItem _cartItem = cartItems.Find(item => item.product == cartItem.product);
+            if (_cartItem == null)
+                return false;
+            else
+                return true;
         }
         public List<CartItem> GetCartItems()
         {
