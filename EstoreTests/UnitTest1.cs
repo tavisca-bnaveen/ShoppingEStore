@@ -10,8 +10,11 @@ namespace EstoreTests
         {
             DiscountConfiguration discountConfiguration = new DiscountConfiguration();
             discountConfiguration.AddDiscount(Category.Electronics, 0);
+            
             RedmiNote5Pro redmiNote5Pro = new RedmiNote5Pro();
             RedmiY3 redmiY3 = new RedmiY3();
+            discountConfiguration.AddProductDiscount(redmiNote5Pro);
+            discountConfiguration.AddProductDiscount(redmiY3);
             CartItem RedmiY3CartItem = new CartItem(redmiY3, 2,discountConfiguration);
             CartItem RedmiNote5ProCartItem = new CartItem(redmiNote5Pro, 2,discountConfiguration);
             //DiscountConfiguration discountConfiguration = new DiscountConfiguration();
@@ -32,6 +35,8 @@ namespace EstoreTests
             discountConfiguration.AddDiscount(Category.Electronics, 0);
             RedmiNote5Pro redmiNote5Pro = new RedmiNote5Pro();
             RedmiY3 redmiY3 = new RedmiY3();
+            discountConfiguration.AddProductDiscount(redmiNote5Pro);
+            discountConfiguration.AddProductDiscount(redmiY3);
             CartItem RedmiY3CartItem = new CartItem(redmiY3, 2,discountConfiguration);
             CartItem RedmiNote5ProCartItem = new CartItem(redmiNote5Pro, 2,discountConfiguration);
             Assert.Equal(19998, RedmiY3CartItem.GetTotalPrice());
@@ -56,6 +61,8 @@ namespace EstoreTests
             discountConfiguration.AddDiscount(Category.Electronics, 0);
             RedmiNote5Pro redmiNote5Pro = new RedmiNote5Pro();
             RedmiY3 redmiY3 = new RedmiY3();
+            discountConfiguration.AddProductDiscount(redmiNote5Pro);
+            discountConfiguration.AddProductDiscount(redmiY3);
             CartItem RedmiY3CartItem = new CartItem(redmiY3, 2,discountConfiguration);
             CartItem RedmiNote5ProCartItem = new CartItem(redmiNote5Pro, 2,discountConfiguration);
            
@@ -75,6 +82,8 @@ namespace EstoreTests
             discountConfiguration.AddDiscount(Category.Electronics, 0);
             RedmiNote5Pro redmiNote5Pro = new RedmiNote5Pro();
             RedmiY3 redmiY3 = new RedmiY3();
+            discountConfiguration.AddProductDiscount(redmiNote5Pro);
+            discountConfiguration.AddProductDiscount(redmiY3);
             CartItem RedmiY3CartItem = new CartItem(redmiY3, 2, discountConfiguration);
             CartItem RedmiNote5ProCartItem = new CartItem(redmiNote5Pro, 2, discountConfiguration);
             
@@ -107,6 +116,9 @@ namespace EstoreTests
             HalfGirlFriend halfGirlFriend = new HalfGirlFriend();
             RedmiNote5Pro redmiNote5Pro = new RedmiNote5Pro();
             RedmiY3 redmiY3 = new RedmiY3();
+            discountConfiguration.AddProductDiscount(redmiNote5Pro);
+            discountConfiguration.AddProductDiscount(redmiY3);
+            discountConfiguration.AddProductDiscount(halfGirlFriend);
             CartItem HalfGirlFriendCartItem= new CartItem(halfGirlFriend, 5, discountConfiguration);
             CartItem RedmiY3CartItem = new CartItem(redmiY3, 2, discountConfiguration);
             CartItem RedmiNote5ProCartItem = new CartItem(redmiNote5Pro, 2, discountConfiguration);

@@ -9,7 +9,7 @@
         {
             this.product = product;
             this.Quantity = Quantity;
-            TotalPrice = product.Price*(1-discountConfiguration.CategoryDiscount[product.Category]) * Quantity;
+            TotalPrice = product.Price*(1-discountConfiguration.ProductDiscount[product])*(1-discountConfiguration.CategoryDiscount[product.Category]) * Quantity;
         }   
         public double GetTotalPrice()
         {
